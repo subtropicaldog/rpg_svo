@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SVO_FEATURE_DETECTION_H_
+#ifndef SVO_FEATURE_DETECTION_H_          // ifndef 用于避免头文件重复包含
 #define SVO_FEATURE_DETECTION_H_
 
 #include <svo/global.h>
@@ -31,13 +31,13 @@ struct Corner
   int x;        //!< x-coordinate of corner in the image.
   int y;        //!< y-coordinate of corner in the image.
   int level;    //!< pyramid level of the corner.
-  float score;  //!< shi-tomasi score of the corner.
+  float score;  //!< shi-tomasi score of the corner.                     注意是 shitomasi的分
   float angle;  //!< for gradient-features: dominant gradient angle.
   Corner(int x, int y, float score, int level, float angle) :
     x(x), y(y), level(level), score(score), angle(angle)
   {}
 };
-typedef vector<Corner> Corners;
+typedef vector<Corner> Corners;                                   //typedef 相当于起别名 Corners是装着corner结构体的vector
 
 /// All detectors should derive from this abstract class.
 class AbstractDetector
@@ -65,7 +65,7 @@ public:
 
 protected:
 
-  static const int border_ = 8; //!< no feature should be within 8px of border.
+  static const int border_ = 8; //!< no feature should be within 8px of border.    边界内8个像素出 不应该有特征点 
   const int cell_size_;
   const int n_pyr_levels_;
   const int grid_n_cols_;  //!< grid 的行数
@@ -77,11 +77,11 @@ protected:
   inline int getCellIndex(int x, int y, int level)
   {
     const int scale = (1<<level);
-    return (scale*y)/cell_size_*grid_n_cols_ + (scale*x)/cell_size_;
+    return (scale*y)/cell_size_*grid_n_cols_ + (scale*x)/cell_size_;            // 用于计算这是第几个cell 
   }
 };
-//* 基类指针
-typedef boost::shared_ptr<AbstractDetector> DetectorPtr;
+//* 基类指针   共享指针
+typedef boost::shared_ptr<AbstractDetector> DetectorPtr;                         
 
 /// FAST detector by Edward Rosten.
 class FastDetector : public AbstractDetector
