@@ -24,9 +24,9 @@ namespace svo {
 /// A salient image region that is tracked across frames.
 struct Feature
 {
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
-
-  enum FeatureType {
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW   // 如果定义具有固定大小可矢量化Eigen类型成员的结构，则必须重载其“operator new”，以便生成16字节对齐的指针。
+                                    //  幸运的是，Eigen为您提供了一个宏EIGEN_MAKE_ALIGNED_OPERATOR_NEW，可以为您完成。
+  enum FeatureType {                // enum 枚举
     CORNER,
     EDGELET
   };
