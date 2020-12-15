@@ -34,7 +34,7 @@ class Feature;
 
 /// Warp a patch from the reference view to the current view.
 namespace warp {
-
+                                                               //定义了一个仿射变换的namespace 应该是用于不同帧patch之间的仿射
 void getWarpMatrixAffine(
     const vk::AbstractCamera& cam_ref,
     const vk::AbstractCamera& cam_cur,
@@ -64,7 +64,7 @@ void warpAffine(
 class Matcher
 {
 public:
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW       
 
   static const int halfpatch_size_ = 4;
   static const int patch_size_ = 8;
