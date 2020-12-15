@@ -16,7 +16,7 @@
 
 #ifndef SVO_BUNDLE_ADJUSTMENT_H_
 #define SVO_BUNDLE_ADJUSTMENT_H_
-
+                                                      //利用g2o做的一些BA 构造了一些边和一些顶点
 #include <svo/global.h>
 
 namespace g2o {
