@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef SVO_FEATURE_ALIGNMENT_H_
-#define SVO_FEATURE_ALIGNMENT_H_
+#define SVO_FEATURE_ALIGNMENT_H_                   // 说白了就是用LK光流法对齐 feature points 这件事
 
 #include <svo/global.h>
 
@@ -44,7 +44,7 @@ bool align2D(
     Vector2d& cur_px_estimate,
     bool no_simd = false);
 
-bool align2D_SSE2(
+bool align2D_SSE2(                           //这里不太懂，是针对不同的fast法的光流法吗 又是sse2 又是 neon
     const cv::Mat& cur_img,
     uint8_t* ref_patch_with_border,
     uint8_t* ref_patch,
