@@ -18,8 +18,8 @@
 #define SVO_SPARSE_IMG_ALIGN_H_
 
 #include <vikit/nlls_solver.h>
-#include <vikit/performance_monitor.h>
-#include <svo/global.h>
+#include <vikit/performance_monitor.h>          // vikit 是一个工具库
+#include <svo/global.h> 
 
 namespace vk {
 class AbstractCamera;
