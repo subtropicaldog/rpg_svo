@@ -22,7 +22,7 @@
 #include <svo/point.h>
 #include <vikit/abstract_camera.h>
 #include <vikit/vision.h>
-#include <vikit/math_utils.h>
+#include <vikit/math_utils.h>                   // 一个工具库
 
 namespace svo {
 /********************************
